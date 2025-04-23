@@ -1,1 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
 
+</head>
+<body>
+    
+	<header class="site-header">
+		<div class="border_bm">
+			<div class="wrap">
+				<div class="row_first">
+                	<div>
+                		<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                		<span>Find Location</span>
+                	</div>
+                	<div>
+                		<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                		<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                		<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                		<a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                	</div>
+                </div>
+            </div>
+        </div>
+           
+		<div class="border_bm">
+            <div class="wrap">
+                <div class="row_two">
+                <div class="site_logo">
+                    <a href="#"><img src="./img/logo.png" alt=""></a>
+                </div>
+                 <div class="header__quote">
+                    <div class="quote__contant">
+                        <div class="quote__images">
+                            <a href="#">
+                                <i class="demo-icon icon-phone">&#xe801;</i>
+                            </a>
+                        </div>
+                        <div class="quote__number">
+                            <span>Get a Quote</span>
+                            <pre>+91 12345 12345</pre>
+                        </div>
+                    </div>
+                    <div class="support__contant">
+                        <div class="support__img">
+                            <a href="#">
+                                <i class="demo-icon icon-mail">&#xe803;</i>
+                            </a>
+                        </div>
+                        <div class="support__gmail">
+                            <span>Support</span>
+                            <pre>hardy@consultation.com</pre>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            </div>    
+        </div>
+
+        <div class="border_bm pb-0">
+            <div class="wrap">
+                <div class="bottom__contant">
+                    <nav class="nav_bar">
+                        <ul>
+                            <li><a href="#" class="active">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Home</a></li>
+                        </ul>
+                    </nav>
+                    <div class="bootom__btn">
+                        <button>
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#">Get Free Consultation</a>
+                        </button>
+                        <div class="menu-toggle">
+                            <span class="bar1"></span>
+                            <span class="bar2"></span>
+                            <span class="bar3"></span>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+            
+    </header>
+    
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+     <script type="text/javascript" src="./js/script.js"></script>
+
+</body>
+</html>
