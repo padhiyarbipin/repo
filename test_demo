@@ -6,12 +6,567 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" integrity="sha512-yHknP1/AwR+yx26cB1y0cjvQUMvEa2PFzt1c9LlS4pRQ5NOTZFWbhBig+X9G9eYW/8m0/4OXNx8pxJ6z57x0dw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css" integrity="sha512-17EgCFERpgZKcm0j0fEq1YCJuyAWdz9KUtv1EjVuaOz8pDnh/0nZxmU6BBXwaaxqoi9PQXnRWqlcDB027hgv9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- <link rel="stylesheet" type="text/css" href="./css/style.css"> -->
+
+    <style>
+        
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+/*link font*/
+@font-face {
+  font-family: 'ProximaNova';
+  src: url('../font/proximano.woff') format('woff');
+  /* You can add .woff2 or .ttf if available */
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'ProximaNova', sans-serif;
+}
+
+html {
+    font-family: 'Archivo', sans-serif;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+    display: block;
+}
+
+[tabindex="-1"]:focus:not(:focus-visible) {
+    outline: 0 !important;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+body {
+    margin: 0;
+    font-family: 'Archivo', sans-serif;
+    font-size: var(--body-font-size);
+    color: var(--body-font-color);
+    line-height: var(--body-line-height);
+    font-weight: var(--body-font-weight);
+    background-color: #fff;
+    text-align: left;
+}
+
+img {
+    max-width: 100%
+}
+
+a {
+    color: var(--link-font-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(16, 24, 40);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 24px;
+    font-size: 18px;
+    font-stretch: 100%;
+    font-weight: 400;
+    line-height: 26px;
+    color: rgb(16, 24, 40);
+    letter-spacing: 1px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: var(--heading-font-family);
+    color: var(--heading-font-color);
+    font-weight: var(--heading-font-weight);
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1.25;
+}
+
+h1,
+.h1 {
+    color: rgb(16, 24, 40);
+    font-size: 80px;
+    font-weight: 800;
+    line-height: 80px;
+}
+
+h2,
+.h2 {
+    font-size: 64px
+}
+
+h3,
+.h3 {
+    color: rgb(16, 24, 40);
+    font-size: 22px;
+    font-weight: 800;
+}
+
+h4,
+.h4 {
+    font-size: 32px
+}
+
+h5,
+.h5 {
+    font-size: 24px
+}
+
+h6,
+.h6 {
+    font-size: 20px
+}
+
+.section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+.ml-auto,
+.mx-auto {
+    margin-left: auto !important;
+}
+
+.mr-auto,
+.mx-auto {
+    margin-right: auto !important;
+}
+
+.mt-0 {
+    margin-top: 0 !important;
+}
+
+.mt-30 {
+    margin-top: 30px !important;
+}
+
+.mt-48 {
+    margin-top: 48px !important;
+}
+
+.mt-64 {
+    margin-top: 64px !important;
+}
+
+.mt-72 {
+    margin-top: 72px !important;
+}
+
+.mb-0 {
+    margin-bottom: 0 !important;
+}
+
+.mb-10 {
+    margin-bottom: 10px !important;
+}
+
+.mb-24 {
+    margin-bottom: 24px !important;
+}
+
+.mb-30 {
+    margin-bottom: 30px !important;
+}
+
+.mb-48 {
+    margin-bottom: 48px !important;
+}
+
+.mb-64 {
+    margin-bottom: 64px !important;
+}
+
+.mb-100 {
+    margin-bottom: 100px !important;
+}
+
+.pt-0 {
+    padding-top: 0 !important;
+}
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+[class*='col-'] {
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.col-1 {
+    max-width: 8.33333333%;
+    flex: 0 0 8.33333333%;
+}
+
+.col-2 {
+    max-width: 16.66666667%;
+    flex: 0 0 16.66666667%;
+}
+
+.col-3 {
+    max-width: 25%;
+    flex: 0 0 25%;
+}
+
+.col-4 {
+    max-width: 33.33333333%;
+    flex: 0 0 33.33333333%;
+}
+
+.col-5 {
+    max-width: 41.66666667%;
+    flex: 0 0 41.66666667%;
+}
+
+.col-6 {
+    max-width: 50%;
+    flex: 0 0 50%;
+}
+
+.col-7 {
+    max-width: 58.33333333%;
+    flex: 0 0 58.33333333%;
+}
+
+.col-8 {
+    max-width: 66.66666667%;
+    flex: 0 0 66.66666667%;
+}
+
+.col-9 {
+    max-width: 75%;
+    flex: 0 0 75%;
+}
+
+.col-10 {
+    max-width: 83.33333333%;
+    flex: 0 0 83.33333333%;
+}
+
+.col-11 {
+    max-width: 91.66666667%;
+    flex: 0 0 91.66666667%;
+}
+
+.col-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+.no-guttor {
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.no-guttor>[class*='col-'] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.flex-reverse {
+    -webkit-flex-direction: row-reverse;
+    -moz-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
+    -o-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+.align-center {
+    -ms-align-items: center;
+    align-items: center;
+}
+
+
+.wrap{
+    max-width: 1400px;
+    margin-inline: auto;
+}
+.site-header {
+    padding-top: 16px;
+}
+.border_bm{
+    border-bottom: 1px solid #cdcdcd;
+    padding-bottom: 10px;
+}
+.row_first {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
+}
+.row_two {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding-top: 10px;
+}
+.header__quote {
+    display: flex;
+    align-items: center;
+}
+.quote__contant{
+    display: flex;
+    align-items: center;
+}
+.support__contant {
+    display: flex;
+}
+pre{
+    margin-block: 5px;
+}
+
+/*Row last css*/
+.bottom__contant {
+    display: flex;
+    justify-content: space-between;
+}
+.nav_bar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+/*  height: 50px;*/
+}
+.nav_bar ul li {
+    border-left: 1px solid #cdcdcd;
+    border-right: 1px solid #cdcdcd;
+    padding: 14px 26px;
+}
+.pb-0 {
+    padding-bottom: 0 !important;
+}
+.nav_bar ul li a:hover {
+    color: #f15a2a;
+}
+.active {
+    color: #f15a2a;
+    border-bottom: 2px solid #f15a2a !important;
+}
+.bootom__btn {
+    align-content: center;
+}
+.bootom__btn button {
+    background-color: #f15a2a;
+    padding: 10px 23px 5px 27px;
+    border-radius: 3px;
+    display: flex;
+}
+
+.bootom__btn .menu-toggle {
+  display: none;
+  flex-wrap: wrap;
+  width: 40px;
+  height: 26px !important;
+  z-index: 9;
+  position: relative;
+  top: 8px;
+  margin-left: auto;
+}
+
+.bootom__btn .menu-toggle span {
+  width: 30px;
+  height: 4px;
+  background: orange; /* Replace with actual value of $orenge if it's defined elsewhere */
+  margin: 0px auto;
+  transition: all 0.3s;
+  backface-visibility: hidden;
+}
+
+.bootom__btn .menu-toggle .mobile-menu {
+  display: none;
+}
+
+.bootom__btn .menu-toggle .mobile-menu.open {
+  display: block;
+}
+
+.bootom__btn .on .bar1 {
+  transform: rotate(45deg) translate(0px, 5px) !important;
+}
+
+.bootom__btn .on .bar2 {
+  opacity: 0;
+}
+
+.bootom__btn .on .bar3 {
+  transform: rotate(-45deg) translate(7px, -12px) !important;
+}
+.bootom__btn {
+    display: flex;
+}
+
+#header-main {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    background-color: #ffff;
+}
+
+#header-main.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: 0.8s all;
+}
+
+#header-main.sticky {
+    animation: scroll 0.8s forwards;
+}
+
+@keyframes scroll {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: -155px;
+    }
+}
+  .top-scroll {
+    display: none;
+    cursor: pointer;
+    position: fixed; 
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: $orenge;
+    color: white;
+    border: none;
+    transition: 0.8s;
+    font-size: 30px;
+    transform: rotate(182deg);
+    &:hover{
+        background-color: $darkblue;
+        transform: rotate(538deg);
+    }
+  }
+
+
+
+@media screen and (max-width: 992px) {
+   .bottom__contant {
+    justify-content: flex-end !important;
+    position: relative;
+  }
+
+  .bottom__contant .nav_bar {
+    display: none;
+    max-height: 100vh !important;
+/*    overflow-y: auto;*/
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    right: 0;
+    z-index: 9;
+  }
+
+  .bottom__contant ul {
+    display: block !important;
+    width: 100%;
+    margin-left: auto;
+    padding: 0 20px 0;
+    background-color: #fff;
+    box-shadow: 0 0 12px 0 rgba(0,0,0,.2509803922);
+/*    height: 374px !important;*/
+    border-radius: 0 0 10px 10px !important;
+  }
+
+   .bottom__contant ul li {
+    border: none !important;
+  }
+
+   .bottom__contant ul li a {
+    color: #000;
+  }
+
+   .bottom__contant ul li .sub__menu {
+    display: none !important;
+  }
+
+  .bootom__btn .get__button {
+    margin-right: 10px;
+  }
+
+   .bootom__btn .menu-toggle {
+    display: flex !important;
+    cursor: pointer;
+  }
+
+  .header__border3 .bootom__btn .menu-toggle .bar1,
+  .header__border3 .bootom__btn .menu-toggle .bar2,
+  .header__border3 .bootom__btn .menu-toggle .bar3 {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    margin: 5px 0;
+    display: block !important;
+  }
+}
+
+
+    </style>
 
 </head>
 <body>
     
-	<header class="site-header">
+	<header id="header-main" class="site-header">
 		<div class="border_bm">
 			<div class="wrap">
 				<div class="row_first">
@@ -92,11 +647,97 @@
                 </div>
             </div>
         </div>
-            
     </header>
-    
+
+    <main>
+        <section style="height: 1000px;"></section>
+    </main>
+
      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-     <script type="text/javascript" src="./js/script.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script>
+           let items = document.querySelectorAll(".nav_bar ul li a");
+
+  items.forEach(function (li) {
+    li.onclick = function () {
+      items.forEach(function (el) {
+        el.classList.remove("active");
+      });
+      this.classList.add("active");
+    };
+  });
+
+   $(".menu-toggle").click(function() {
+        $(this).toggleClass("on");
+        $(".nav_bar").slideToggle();
+    });
+
+$('.serve-slider').slick({
+        dots: true,
+        infinite: true,
+        margin: 0,
+        speed: 300,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        arrows: true,
+        prevArrow: $(".serve-prev"),
+        nextArrow: $(".serve-next"),
+        responsive: [
+            {
+              breakpoint: 1450,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+              }
+            },
+            {
+              breakpoint: 1250,
+              settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1
+              }
+            },
+            {
+                breakpoint: 1190,
+                settings: {
+                  slidesToShow: 3,
+                  slidesToScroll: 1
+                }
+              },
+            {
+              breakpoint: 1024,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1
+              }
+            },
+            {
+                breakpoint: 634,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1
+                }
+              }
+          ]
+    });
+
+
+$('#scrollToBottom').on('click', function(event) {
+        event.preventDefault();
+        $('html, body').animate({
+        scrollTop: $('#bottom').offset().top
+        }, 1000);
+    });
+    $(window).scroll(function () {
+    if ($(this).scrollTop() > 200) {
+        $('#header-main').addClass("sticky");
+    }
+    else {
+        $('#header-main').removeClass("sticky");
+    }
+    });
+     </script>
 
 </body>
 </html>
