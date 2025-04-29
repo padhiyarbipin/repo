@@ -18,5 +18,8 @@ function custom_enqueue_assets() {
   add_action('wp_enqueue_scripts', 'custom_enqueue_assets');
 
 
+header footer link
+https://wordpress.org/plugins/header-footer-elementor/
+
 // acf link //
   <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/client-1.svg" alt="">
