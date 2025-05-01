@@ -24,6 +24,9 @@ https://underscores.me/
 plugin header footer link
 https://wordpress.org/plugins/header-footer-elementor/
 
+popup link
+https://wordpress.org/plugins/popup-box/
+
 // acf link //
   <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/client-1.svg" alt="">
 
