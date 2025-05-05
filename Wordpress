@@ -17,6 +17,10 @@ function custom_enqueue_assets() {
   }
   add_action('wp_enqueue_scripts', 'custom_enqueue_assets');
 
+// wordpress downloaed //
+https://wordpress.org/download/
+
+
 //theme link in dowloand//
 https://underscores.me/
 
