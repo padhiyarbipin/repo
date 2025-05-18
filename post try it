@@ -1,0 +1,82 @@
+<?php
+/**
+ * Template Name: Custom Home Page
+ */
+get_header();
+?>
+
+<section class="home-posts">
+  <?php
+  $post_objects = get_field('home_post', get_the_ID()); // multiple posts selected
+
+  if( $post_objects ):
+    foreach( $post_objects as $post ):
+      setup_postdata( $post );
+      ?>
+      <div class="single-post-box">
+        <a href="<?php the_permalink(); ?>">
+          <?php the_post_thumbnail('medium'); ?>
+        </a>
+
+        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+
+        <div class="post-meta">
+          <?php
+          $categories = get_the_category();
+          if ( $categories ) {
+            echo '<p class="post-categories">';
+            foreach ( $categories as $cat ) {
+              echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '">' . esc_html( $cat->name ) . '</a> ';
+            }
+            echo '</p>';
+          }
+          ?>
+          <p class="post-author">By <?php the_author(); ?></p>
+        </div>
+
+        <div class="excerpt"><?php the_excerpt(); ?></div>
+        <a href="<?php the_permalink(); ?>">Read More</a>
+      </div>
+      <?php
+    endforeach;
+    wp_reset_postdata();
+  else:
+    echo '<p>No posts selected.</p>';
+  endif;
+  ?>
+</section>
+
+
+<?php
+$posts = get_field('featured_posts'); // Post Object field (multiple)
+
+if ( $posts ):
+  echo '<section class="featured-posts">';
+  echo '<div class="container">';
+  echo '<h2>Selected Posts</h2>';
+  echo '<div class="post-grid">';
+
+  foreach ( $posts as $post ):
+    setup_postdata( $post ); ?>
+    
+    <div class="post-box">
+      <a href="<?php the_permalink(); ?>">
+        <?php the_post_thumbnail('medium'); ?>
+      </a>
+      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+      <p><?php the_excerpt(); ?></p>
+    </div>
+
+  <?php endforeach;
+
+  echo '</div></div></section>';
+  wp_reset_postdata();
+else:
+  echo '<p>No posts selected.</p>';
+endif;
+?>
+
+
+
+
+<?php get_footer(); ?>
