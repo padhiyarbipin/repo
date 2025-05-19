@@ -6,44 +6,46 @@ get_header();
 ?>
 
 <section class="home-posts">
-  <?php
-  $post_objects = get_field('home_post', get_the_ID()); // multiple posts selected
+    <div class= "row">
+        <div class="col-12">
+            <?php
+            $post_objects = get_field('home_post', get_the_ID()); // multiple posts selected
 
-  if( $post_objects ):
-    foreach( $post_objects as $post ):
-      setup_postdata( $post );
-      ?>
-      <div class="single-post-box">
-        <a href="<?php the_permalink(); ?>">
-          <?php the_post_thumbnail('medium'); ?>
-        </a>
+            if( $post_objects ):
+                foreach( $post_objects as $post ):
+                setup_postdata( $post );
+                ?>
+                <div class="single-post-box">
+                    <a href="<?php the_permalink(); ?>">
+                    <?php the_post_thumbnail('medium'); ?>
+                    </a>
 
-        <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <?php
+                        $categories = get_the_category();
+                        if ( $categories ) {
+                        echo '<p class="post-categories">';
+                        foreach ( $categories as $cat ) {
+                            echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '">' . esc_html( $cat->name ) . '</a> ';
+                        }
+                        echo '</p>';
+                        }
+                        ?>
 
-        <div class="post-meta">
-          <?php
-          $categories = get_the_category();
-          if ( $categories ) {
-            echo '<p class="post-categories">';
-            foreach ( $categories as $cat ) {
-              echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '">' . esc_html( $cat->name ) . '</a> ';
-            }
-            echo '</p>';
-          }
-          ?>
-          <p class="post-author">By <?php the_author(); ?></p>
+                    <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+                    <div class="excerpt"><?php the_excerpt(); ?></div>
+                    <div class="post-meta">
+                        <p class="post-author">By <?php the_author(); ?></p>
+                    </div>
+                </div>
+                <?php
+                endforeach;
+                wp_reset_postdata();
+            else:
+                echo '<p>No posts selected.</p>';
+            endif;
+            ?>
         </div>
-
-        <div class="excerpt"><?php the_excerpt(); ?></div>
-        <a href="<?php the_permalink(); ?>">Read More</a>
-      </div>
-      <?php
-    endforeach;
-    wp_reset_postdata();
-  else:
-    echo '<p>No posts selected.</p>';
-  endif;
-  ?>
+    </div>
 </section>
 
 
@@ -54,17 +56,32 @@ if ( $posts ):
   echo '<section class="featured-posts">';
   echo '<div class="container">';
   echo '<h2>Selected Posts</h2>';
-  echo '<div class="post-grid">';
+  echo '<div class="post-grid row">';
 
   foreach ( $posts as $post ):
     setup_postdata( $post ); ?>
     
-    <div class="post-box">
-      <a href="<?php the_permalink(); ?>">
-        <?php the_post_thumbnail('medium'); ?>
-      </a>
-      <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-      <p><?php the_excerpt(); ?></p>
+    <div class="col-3">
+        <div class="post-box">
+        <a href="<?php the_permalink(); ?>">
+            <?php the_post_thumbnail('medium'); ?>
+        </a>
+        <?php
+            $categories = get_the_category();
+            if ( $categories ) {
+            echo '<p class="post-categories">';
+            foreach ( $categories as $cat ) {
+                echo '<a href="' . esc_url( get_category_link( $cat->term_id ) ) . '">' . esc_html( $cat->name ) . '</a> ';
+            }
+            echo '</p>';
+            }
+            ?>
+        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+        <div class="post-meta">
+            <p class="post-author">By <?php the_author(); ?></p>
+        </div>
+        <p><?php the_excerpt(); ?></p><!-- shop description code -->
+        </div>
     </div>
 
   <?php endforeach;
