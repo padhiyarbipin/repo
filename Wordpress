@@ -20,6 +20,17 @@ function custom_enqueue_assets() {
 // wordpress downloaed //
 https://wordpress.org/download/
 
+video.css
+/* position: absolute;
+*/ top: 0;
+left: -100px;
+min-width: 100%;
+min-height: 100%;
+transform: translateX(-700px);
+object-fit: cover;
+z-index: -1;
+object-fit: cover;
+
 
 //theme link in dowloand//
 https://underscores.me/
