@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tab with Red Border on Base</title>
+  <style>
+
+    .tabs {
+      display: flex;
+      border-bottom: 9px solid #ccc;
+      max-width: 400px;
+      position: relative;
+    }
+
+    .tab {
+      width: 50%;
+      text-align: center;
+      padding: 10px 0;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .tab.active::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+        height: 9px;
+        background-color: red;
+        z-index: 2;
+    }
+
+    .tab-content {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-top: none;
+      max-width: 400px;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .tab.active {
+      color: rgb(28, 19, 112);
+    }
+  </style>
+</head>
+<body>
+
+<div class="tabs">
+  <div class="tab active" data-tab="1">Tab 1</div>
+  <div class="tab" data-tab="2">Tab 2</div>
+</div>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="tab-1"><strong>This is Tab 1 content.</strong></div>
+  <div class="tab-pane" id="tab-2"><strong>This is Tab 2 content.</strong></div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.tab');
+  const panes = document.querySelectorAll('.tab-pane');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      panes.forEach(p => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      const paneId = tab.getAttribute('data-tab');
+      document.getElementById(`tab-${paneId}`).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
