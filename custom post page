@@ -5,6 +5,8 @@
 get_header();
 ?>
 
+WP-Optimize plugin this pulgin use to side speed fast
+
 <section class="home-posts">
     <div class= "row">
         <div class="col-12">
