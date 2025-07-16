@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  --red: #e30613;
+  --white: #ffffff;
+  --off-white: #fafafa;
+  --sky-blue: #00bfff;
+  --black: #000000;
+  --black-30: #0000004c;
+  --jet-black: #373736;
+  --gray: #8d8989;
+  --blue: #c7c7c7;
+  --primary-font: "Inter", sans-serif;
+  --secondary-font: "Poppins", sans-serif;
+  --h1-size: 60px;
+  --h2-size: 40px;
+  --h3-size: 36px;
+  --h4-size: 32px;
+  --h5-size: 24px;
+  --h6-size: 20px;
+  --p-size: 16px;
+  --h1-line-height: 90px;
+  --h2-line-height: 60px;
+  --h3-line-height: 44px;
+  --h4-line-height: 39px;
+  --h5-line-height: 36px;
+  --h6-line-height: 53px;
+  --p-line-height: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--white);
+  color: var(--jet-black);
+  font: 500 var(--p-size)/var(--p-line-height) var(--secondary-font);
+}
+
+ul {
+  list-style: none;
+}
+
+iframe,
+img,
+video,
+svg {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+h1 {
+  font: 700 var(--h1-size)/var(--h1-line-height) var(--secondary-font);
+  margin-bottom: 24px;
+}
+
+h2 {
+  font: 700 var(--h2-size)/var(--h2-line-height) var(--secondary-font);
+  margin-bottom: 22px;
+}
+
+h3 {
+  font: 700 var(--h3-size)/var(--h3-line-height) var(--secondary-font);
+  margin-bottom: 20px;
+}
+
+h4 {
+  font: 600 var(--h4-size)/var(--h4-line-height) var(--secondary-font);
+  margin-bottom: 18px;
+}
+
+h5 {
+  font: 600 var(--h5-size)/var(--h5-line-height) var(--secondary-font);
+  margin-bottom: 16px;
+}
+
+h6 {
+  font: 600 var(--h6-size)/var(--h6-line-height) var(--secondary-font);
+  margin-bottom: 14px;
+}
+
+p {
+  font: 400 var(--p-size)/var(--p-line-height) var(--secondary-font);
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:hover {
+  color: inherit;
+}
+
+a:is(:focus, :focus-visible) {
+  outline: 1px solid var(--red);
+  box-shadow: none;
+}
+
+p a {
+  color: var(--sky-blue);
+}
+
+p a:hover {
+  color: var(--red);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--off-white);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gray);
+}
+
+::-moz-selection {
+  color: var(--red);
+  background: var(--off-white);
+}
+
+::selection {
+  color: var(--red);
+  background: var(--off-white);
+}
+
+
+:is(h1, h2, h3, h4, h5, h6, p):last-child {
+  margin-bottom: 0;
+}
+
+.ml-34 {
+  margin-left: 34px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 20px;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  padding: 24px 40px;
+  background-color: var(--red);
+  color: var(--white);
+  font: 600 20px/24px var(--secondary-font);
+  transition: all 0.25s ease-in-out;
+}
+
+.secondaryBtn {
+  transition: all 0.5s ease-in-out;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.625rem, 0.4878rem + 0.6098vw, 0.9375rem) clamp(2.4375rem, 2.2729rem + 0.7317vw, 2.8125rem);
+  font: 600 16px/19.5px var(--primary-font);
+  color: var(--sky-blue);
+  background-color: var(--white);
+  border-radius: 30px;
+  font-family: var(--primary-font);
+}
+
+.btn-dark {
+  background-color: var(--jet-black);
+  font-size: 16px;
+  padding: 24px 55px;
+}
+
+.primaryBtn:hover,
+.secondaryBtn:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  transform: translateY(-2px);
+  color: var(--white);
+}
