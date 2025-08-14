@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flip Boxes Grid with AOS Animation</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  font-family: sans-serif;
+  background: #f5f5f5;
+  margin: 0;
+  padding: 40px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  gap: 30px;
+  justify-content: center;
+}
+.flipbox {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  perspective: 1000px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.flipbox.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.card {
+  position: absolute;
+  top: 0; left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; height: 100%;
+  border-radius: 8px;
+  box-shadow: 1px 5px 13px rgba(0,0,0,0.3);
+  color: #fff;
+  text-align: center;
+  backface-visibility: hidden;
+  transition: transform 0.8s cubic-bezier(.4,.2,.2,1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+}
+.flipbox-front {
+  transform: rotateY(0deg);
+  background-size: cover;
+  background-position: center;
+}
+.flipbox-back {
+  transform: rotateY(180deg);
+  padding: 10px;
+  font-size: 17px;
+  line-height: 1.5;
+  background: linear-gradient(135deg, #9e8ed9, #6b5fb5);
+}
+.flipbox:hover {
+  transform: scale(1.05);
+}
+.flipbox:hover .flipbox-front {
+  transform: rotateY(-180deg);
+}
+.flipbox:hover .flipbox-back {
+  transform: rotateY(0deg);
+}
+.flipbox:hover .card {
+  box-shadow: 0 15px 25px rgba(0,0,0,0.4), 0 0 20px rgba(158,142,217,0.8);
+}
+.grid .flipbox:nth-child(5),
+.grid .flipbox:nth-child(2) {
+  margin-top: 20px;
+}
+</style>
+</head>
+<body>
+
+<div class="grid">
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1015/300/200');"></div><div class="card flipbox-back"><p>Box 1</p></div></div>
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1016/300/200');"></div><div class="card flipbox-back"><p>Box 2</p></div></div>
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1018/300/200');"></div><div class="card flipbox-back"><p>Box 3</p></div></div>
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1020/300/200');"></div><div class="card flipbox-back"><p>Box 4</p></div></div>
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1024/300/200');"></div><div class="card flipbox-back"><p>Box 5</p></div></div>
+  <div class="flipbox"><div class="card flipbox-front" style="background-image:url('https://picsum.photos/id/1025/300/200');"></div><div class="card flipbox-back"><p>Box 6</p></div></div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const boxes = document.querySelectorAll('.flipbox');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    boxes.forEach((box, i) => {
+      box.style.transitionDelay = (i * 0.15) + 's';
+      observer.observe(box);
+    });
+  });
+</script>
+
+</body>
+</html>
